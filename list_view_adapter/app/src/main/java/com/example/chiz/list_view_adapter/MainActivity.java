@@ -23,8 +23,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference mUserRef = mRootRef.child("user");
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();;
     DatabaseReference mRecipeRef = mRootRef.child("recipes");
 
     ListView listView;
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "image_url: "+image_url);
                     Log.d(TAG, "-----");
 
-                    Recipes item = new Recipes(title, url, image_url);
+                    Recipes item = new Recipes(title, url, image_url, recipeKey);
                     rowItems.add(item);
 
                     RecipeListAdapter adapter = new RecipeListAdapter(getApplicationContext(), rowItems);
@@ -136,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "test: size"+size);
                             Log.d(TAG, "test: count"+count);
                             if(count == size) {
-                                Recipes item = new Recipes(title, url, image_url);
+                                Recipes item = new Recipes(title, url, image_url, recipeKey);
                                 rowItems.add(item);
 
                                 RecipeListAdapter adapter = new RecipeListAdapter(getApplicationContext(), rowItems);

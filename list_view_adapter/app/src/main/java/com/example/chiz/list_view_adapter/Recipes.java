@@ -8,15 +8,17 @@ public class Recipes {
     private String title;
     private String url;
     private String image_url;
+    private String id;
 
     public Recipes() {
     }
 
-    public Recipes(String title, String url, String image_url){
+    public Recipes(String title, String url, String image_url, String id){
         super();
         this.title = title;
         this.url = url;
         this.image_url = image_url;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -41,5 +43,13 @@ public class Recipes {
 
     public void setImage(String image_url) {
         image_url = image_url;
+    }
+
+    public String getID() {
+        return id;
+    }
+
+    public void setID(String id) {
+        id = id;
     }
 }
