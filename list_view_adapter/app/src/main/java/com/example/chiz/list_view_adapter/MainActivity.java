@@ -84,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                // ...
             }
         });
     }
@@ -127,14 +125,12 @@ public class MainActivity extends AppCompatActivity {
                                     String search = searchedIngredients.get(a);
                                     if(ingr.contains(search.toLowerCase())) {
                                         count++;
-                                        Log.d(TAG, "ingredient found");
-                                        break;
+                                        Log.d(TAG, "test: ingredient found");
                                     }
                                 }
                             }
-                            Log.d(TAG, "test: size"+size);
-                            Log.d(TAG, "test: count"+count);
-                            if(count == size) {
+                            Log.d(TAG, "title: "+title+"-size: "+size+"-count: "+count);
+                            if(count >= size) {
                                 Recipes item = new Recipes(title, url, image_url, recipeKey);
                                 rowItems.add(item);
 
@@ -157,9 +153,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(DatabaseError databaseError) {
-                            // Getting Post failed, log a message
                             Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                            // ...
                         }
                     });
 
@@ -167,19 +161,17 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
-                // ...
             }
         });
     }
 
     public void getSearchedIngredient(){
         String string = searchField.getText().toString();
-        //Log.d(TAG, "test: comma separated string: "+string);
+        Log.d(TAG, "test: comma separated string: "+string);
 
         searchedIngredients = new  ArrayList<String>(Arrays.asList(string.split(",|\\, |\\ , |\\ ,")));
-        //Log.d(TAG, "test: ArrayList size: "+searchedIngredients.size());
+        Log.d(TAG, "test: ArrayList size: "+searchedIngredients.size());
     }
 
     public void hideKeypad(){

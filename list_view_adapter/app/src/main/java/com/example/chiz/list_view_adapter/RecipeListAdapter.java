@@ -73,7 +73,7 @@ public class RecipeListAdapter extends BaseAdapter {
 
         holder.addRecipe.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String uid = "sDMAc5f2faMa8dynEXK3A8k3Y1q1";
+                String uid = "e8C1zkRCtWTGvTZk9aJJryR3oCj1";
                 DatabaseReference mspecificUser = mUserRef.child(uid+"/recipes/"+id);
                 mspecificUser.child("title").setValue(title);
                 mspecificUser.child("url").setValue(url);
